@@ -17,7 +17,7 @@ test_that("multiple linear regression is correct", {
 
   my_result <- mtcars %>%
     dplyr::select(mpg, hp, cyl) %>%
-    MASS::multiple_linear_regression(mpg)
+    multiple_linear_regression(mpg)
 
   mass_result <- lm(mpg ~ hp + cyl, data = mtcars)
 

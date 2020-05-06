@@ -21,7 +21,7 @@ test_that("ridge regression returns proper data frame for many lambdas", {
 
   my_result <- mtcars %>%
     dplyr::select(mpg, hp, cyl) %>%
-    MASS::ridge_regression(mpg, lambda = lambdas)
+    ridge_regression(mpg, lambda = lambdas)
 
   expect_equal(names(my_result), c("Intercept", "hp", "cyl", "lambda"))
   expect_equal(my_result$lambda, lambdas)
