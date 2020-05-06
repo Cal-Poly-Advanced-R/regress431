@@ -10,6 +10,7 @@ test_that("ridge regression correctly calculates coefficients", {
                tolerance = 0.01, scale = abs(my_result$hp))
   expect_equal(coef(mass_result)[['cyl']], my_result$cyl,
                tolerance = 0.01, scale = abs(my_result$cyl))
+
   expect_equal(coef(mass_result)[1], my_result$Intercept,
                tolerance = 0.01, scale = abs(my_result$Intercept))
 })
