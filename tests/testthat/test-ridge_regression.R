@@ -6,9 +6,9 @@ test_that("ridge regression correctly calculates coefficients", {
 
   mass_result <- MASS::lm.ridge(mpg ~ hp + cyl, data = mtcars, lambda = .5)
 
-  expect_equal(coef(mass_result)$hp, my_result$hp,
+  expect_equal(coef(mass_result)['hp'], my_result$hp,
                tolerance = 0.01, scale = my_result$hp)
-  expect_equal(coef(mass_result)$cyl, my_result$cyl,
+  expect_equal(coef(mass_result)['cyl'], my_result$cyl,
                tolerance = 0.01, scale = my_result$cyl)
   expect_equal(coef(mass_result)[1], my_result$Intercept,
                tolerance = 0.01, scale = my_result$Intercept)
