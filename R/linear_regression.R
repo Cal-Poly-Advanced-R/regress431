@@ -14,7 +14,7 @@ simple_linear_regression <- function(dat, response, explanatory){
   x <- dat %>% pull({{explanatory}})
   y <- dat %>% pull({{response}})
 
-  explan_name <- data %>%
+  explan_name <- dat %>%
     select({{explanatory}}) %>%
     names()
 
