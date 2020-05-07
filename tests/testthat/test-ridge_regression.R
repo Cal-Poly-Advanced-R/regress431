@@ -4,7 +4,14 @@ test_that("ridge regression correctly calculates coefficients", {
     dplyr::select(mpg, hp, cyl) %>%
     ridge_regression(mpg, lambda = 0.5)
 
-  mass_result <- MASS::lm.ridge(mpg ~ hp + cyl, data = mtcars, lambda = .5*32/31)
+  mtcars2 <- mtcars2 <- mtcars %>%
+    dplyr::select(mpg, cyl, hp) %>%
+    dplyr::mutate(
+      cyl = scale(cyl),
+      hp = scale(hp)
+    )
+
+  mass_result <- MASS::lm.ridge(mpg ~ hp + cyl, data = mtcars2, lambda = .5*32/31)
 
   expect_equal(coef(mass_result)[['hp']], my_result$hp,
                tolerance = 0.01, scale = abs(my_result$hp))
