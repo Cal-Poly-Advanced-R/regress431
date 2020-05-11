@@ -55,7 +55,7 @@ test_that("find_best_lambda returns proper data frame", {
   my_result <- find_best_lambda(train_dat, test_dat, mpg, lambda = lambdas)
 
   expect_equal(names(my_result), c("lambda", "error"))
-  expect_equal(my_result$lambda, lambda)
-  expect_equal(class(my_results$error), "numeric")
+  expect_equal(my_result$lambda, lambdas)
+  expect_equal(class(my_result$error), "numeric")
 })
 
