@@ -4,7 +4,7 @@ test_that("ridge regression correctly calculates coefficients", {
     dplyr::select(mpg, hp, cyl) %>%
     ridge_regression(mpg, lambda = 0.5)
 
-  mtcars2 <- mtcars2 <- mtcars %>%
+  mtcars2 <- mtcars %>%
     dplyr::select(mpg, cyl, hp) %>%
     dplyr::mutate(
       cyl = scale(cyl),
@@ -18,7 +18,7 @@ test_that("ridge regression correctly calculates coefficients", {
   expect_equal(coef(mass_result)[['cyl']], my_result$cyl,
                tolerance = 0.05, scale = abs(my_result$cyl))
 
-  expect_equal(coef(mass_result)[1], my_result$Intercept,
+  expect_equal(coef(mass_result)[[1]], my_result$Intercept,
                tolerance = 0.05, scale = abs(my_result$Intercept))
 })
 
