@@ -3,8 +3,8 @@
 
 ## Introduction
 
-In this lab, you will write functions to implement simple linear
-regression, multiple linear regression, and ridge regression.
+In this lab, you will continue writing functions to implement simple
+linear regression, multiple linear regression, and ridge regression.
 
 Formulas for calculating coefficients of these regressions can be found
 in this week’s course materials.
@@ -29,9 +29,10 @@ repository to your account to begin.
     for the same reasons. You **may** write more unit tests if this is
     helpful to you, but you are not required to.
 
-  - You **may** write helper functions beyond those provided. If you do,
-    you do **not** have to carefully document them or test them;
-    although you might find this helpful to your coding process.
+  - You **may** (probably should) write helper functions beyond those
+    provided. If you do, you do **not** have to carefully document them
+    or test them; although you might find this helpful to your coding
+    process.
 
   - You **may** alter the code I provided for you, if you wish, so long
     as the function inputs do not change and outputs (where specified)
@@ -42,6 +43,12 @@ repository to your account to begin.
     `lm.ridge`, and `predict`. Instead, you should do the necessary
     matrix calculations directly from the data. (You may, however, use
     these functions to check or test the output of the ones you write.)
+
+  - You **may** use the `qr` functions included in this week’s course
+    materials.
+
+  - You **must** implement gradient descent yourself from the
+    expressions in this week’s course materials.
 
   - You **may** rely on existing functions and external packages
     designed for *faster general computation*, such as `data.table` or
@@ -87,28 +94,17 @@ No unit test is written for you for this function, since the output
 format is not known. You are not required to write one, but you may find
 it useful.
 
-### 4\. Ridge Regression
-
-In `ridge_regression.R`, edit the body of the
-`multiple_linear_regression` function to properly compute coefficients
-for a specified penalty value `lambda`, or for a set of lambdas.
-
-Then edit the body of the `find_best_lambda` function to identify a best
-penalty value from a provided list.
-
-Load and test your code as you go.
-
-### 5\. Turn it in
+### 4\. Turn it in
 
 By **Friday**, you should have finished Tasks 1-3.
 
 Open the file `Showcase.Rmd` and knit it. You should see the source code
-for all but your `ridge_regression.R` functions. This file will be used
-for a first round of Peer Review feedback.
+for all but your `ridge_regression.R` functions.
 
-By **Sunday**, you need to have Task 4 finished as well.
+Upload this html to Canvas. You will receive Peer Review feedback.
 
 When you are finished, make sure all your changes are pushed to GitHub.
+Then, submit the link to your repository on Canvas.
 
 ## Challenge
 
@@ -128,24 +124,6 @@ tic()
 toc()
 
   multiple_linear_regression(mtcars, mpg)
-
-toc()
-
- lambdas <- 0:10*.1
-
-  rand <- sample(1:32, 16)
-
-  train_dat <- mtcars %>%
-    dplyr::slice(rand)
-
-  test_dat <- mtcars %>%
-    dplyr::slice(-rand)
-
-  best_lambda <- find_best_lambda(mpg, lambda = lambdas)
-  
-toc()
-
-  ridge_regression(mtcars, mpg, lambda = best_lambda)
   
 toc()
 ```
@@ -155,8 +133,10 @@ varying sizes.
 
 Bonus Points will be given for:
 
-**+5** for fastest `multiple_linear_regression` **+5** for fastest
-`find_best_lambda` **+5** for fastest `ridge_regression`
+  - **+5** for fastest `simple_linear_regression`
 
-**+10** for top 3 in overall total speed **+5** for top 4-10 in overall
-total speed
+  - **+5** for fastest `multiple_linear_regression`
+
+  - **+10** for top 3 in overall total speed
+
+  - **+5** for top 4-10 in overall total speed

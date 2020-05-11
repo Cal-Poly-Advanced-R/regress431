@@ -3,13 +3,14 @@
 #' @param dat A data frame
 #' @param response The name of a response variable in the data frame (unquoted)
 #' @param explanatory The name of the explanatory variable in the data frame (unquoted)
+#' @param method The method used to compute the coefficients (NULL, "qr", "gradientdescent")
 #'
 #' @return A data frame of coefficients
 #'
 #' @import dplyr
 #'
 #' @export
-simple_linear_regression <- function(dat, response, explanatory){
+simple_linear_regression <- function(dat, response, explanatory, method = NULL){
 
   x <- dat %>% pull({{explanatory}})
   y <- dat %>% pull({{response}})
@@ -54,13 +55,14 @@ simple_linear_regression <- function(dat, response, explanatory){
 #'
 #' @param dat A data frame
 #' @param response The name of a response variable in the data frame (unquoted)
+#' @param method The method used to compute the coefficients (NULL, "qr", "gradientdescent")
 #'
 #' @return A data frame of coefficients
 #'
 #' @import dplyr
 #'
 #'@export
-multiple_linear_regression <- function(dat, response) {
+multiple_linear_regression <- function(dat, response, method = NULL) {
 
 
 
