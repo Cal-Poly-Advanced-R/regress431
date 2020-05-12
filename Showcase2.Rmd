@@ -1,0 +1,35 @@
+---
+title: "Showcase Functions"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(regress431)
+```
+
+## Simple Linear Regression by gradient descent
+
+```{r}
+
+slr_gd
+
+
+```
+
+## Multiple Regression by matrix decomposition
+
+
+```{r}
+
+mlr_qr
+
+
+```
+
+
+
+
